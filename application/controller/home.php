@@ -19,6 +19,11 @@ class Home extends Controller
         // debug message to show where you are, just for the demo
         echo 'Message from Controller: You are in the controller home, using the method index()';
         // load views. within the views we can echo out $songs and $amount_of_songs easily
+        $projects_model = $this->loadModel('ProjectsModel');
+        $projects = $projects_model->getAllProjects();
+        echo "<pre>";
+        var_dump($projects);
+        exit;
         require 'application/views/_templates/header.php';
         require 'application/views/home/index.php';
         require 'application/views/_templates/footer.php';
@@ -52,5 +57,9 @@ class Home extends Controller
         require 'application/views/_templates/header.php';
         require 'application/views/home/example_two.php';
         require 'application/views/_templates/footer.php';
+    }
+
+    public function hello(){
+        echo "you made it to hello!";
     }
 }
