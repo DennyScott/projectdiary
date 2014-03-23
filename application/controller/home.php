@@ -17,6 +17,11 @@ class Home extends Controller
     public function index()
     {
         // load views. within the views we can echo out $songs and $amount_of_songs easily
+        $projects_model = $this->loadModel('ProjectsModel');
+        $projects = $projects_model->getAllProjects();
+        echo "<pre>";
+        var_dump($projects);
+        exit;
         require 'application/views/_templates/header.php';
         require 'application/views/home/index.php';
         require 'application/views/_templates/footer.php';
@@ -46,5 +51,9 @@ class Home extends Controller
         require 'application/views/_templates/header.php';
         require 'application/views/home/signup.php';
         require 'application/views/_templates/sign-footer.php';
+    }
+
+    public function hello(){
+        echo "you made it to hello!";
     }
 }
