@@ -27,12 +27,12 @@ class Home extends Controller
      * This method handles what happens when you move to http://yourproject/home/exampleone
      * The camelCase writing is just for better readability. The method name is case insensitive.
      */
-    public function exampleOne()
+    public function signin()
     {
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         require 'application/views/_templates/header.php';
-        require 'application/views/home/example_one.php';
-        require 'application/views/_templates/footer.php';
+        require 'application/views/home/signin.php';
+        require 'application/views/_templates/sign-footer.php';
     }
 
     /**
@@ -40,11 +40,11 @@ class Home extends Controller
      * This method handles what happens when you move to http://yourproject/home/exampletwo
      * The camelCase writing is just for better readability. The method name is case insensitive.
      */
-    public function exampleTwo()
+    public function signup()
     {
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         require 'application/views/_templates/header.php';
-        require 'application/views/home/example_two.php';
-        require 'application/views/_templates/footer.php';
+        require 'application/views/home/signup.php';
+        require 'application/views/_templates/sign-footer.php';
     }
 }

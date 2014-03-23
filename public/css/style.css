@@ -46,9 +46,8 @@ body{
 .content{ margin: 0 auto; width: 960px; }
 .clear { clear: both; }
 
-.navbar-toggle, .icon-bar{
+.navbar-header > .navbar-toggle, .icon-bar{
     color:white;
-    background-color:white;
     margin-top:20px;
 }
 @media (max-width: 768px){
@@ -173,3 +172,34 @@ body{
 
 #copyright  { color: #fff; font-family:"Wellfleet";  font-size: 14px; margin-top: 100px; text-align: center;  }
 #copyright  a { text-decoration: none; color: #fff;  }
+
+.sign-content{
+    margin-top:120px;    
+}
+
+.sign-content > .email-option h3{
+text-align: center;
+font-size: 24px;    
+}
+
+.submit {
+    width:100%;
+}
+
+.entry-signup-cta {
+text-align: center;
+margin-top: 20px;
+font-size: 16px;
+}
+
+.entry p {
+    font-size: 15px;
+    line-height: 20px;
+}
+
+#footer {
+    padding-top: 19px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 14px;
+}
