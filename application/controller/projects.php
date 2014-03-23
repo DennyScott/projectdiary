@@ -46,7 +46,7 @@ class Projects extends Controller
         }
     }
 
-        public function deleteProject($project_id){
+    public function deleteProject($project_id){
         // if we have an id of a song that should be deleted
         if (isset($project_id)) {
             // load model, perform an action on the model
