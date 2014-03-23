@@ -31,7 +31,7 @@
                     <td><?php if (isset($project->updated)) echo $project->updated; ?></td>
                     <td><?php if (isset($project->updated_by)) echo $project->updated_by; ?></td>                    
                     <td><a href="<?php echo URL . 'projects/deleteproject/' . $project->id; ?>">delete</a></td>
-                    <td><a href="<?php echo URL . 'projects/updateproject/' . $project->id; ?>">update</a></td>
+                    <td><a href="<?php echo URL . 'projects/updateproject/' . $project->id . '/' . "Hello"; ?>">update</a></td>
                 </tr>
             <?php } ?>
             </tbody>
