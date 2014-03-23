@@ -16,7 +16,7 @@ class Controller
      */
     function __construct()
     {
-        $this->openDatabaseConnection();
+        //$this->openDatabaseConnection();
     }
 
     /**
