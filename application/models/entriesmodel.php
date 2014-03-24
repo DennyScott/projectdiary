@@ -35,18 +35,20 @@ class EntriesModel
      * @param  [int]    $data       [The data that will be updated in the table]
      * @return [boolean]            [true if the update is completed]
      */
-    public function updateEntry($entry_id, $user_id, $data){
+    public function updateEntry($entry_id, $user_id, $data, $name){
         $entry_id = intval($entry_id);
         $user_id = intval($user_id);
-        $data = trim(strip_tags($data));;
+        $data = trim(strip_tags($data));
+        $name = trim(strip_tags($name));;
 
         $sql = "UPDATE entries 
-                SET updated_by = ?, updated = NOW(), data = ? 
+                SET updated_by = ?, updated = NOW(), data = ?, name = ?
                 WHERE id = ?";
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $user_id);
         $query->bindParam(2, $data);
-        $query->bindParam(3, $entry_id);
+        $query->bindParam(3, $name);
+        $query->bindParam(4, $entry_id);
         $query->execute();
         return true;
     }
@@ -83,19 +85,23 @@ class EntriesModel
      * @param [int]    $project_id [The projects ID the entry belongs to]
      * @param [string] $data       [The text data of the entry]
      * @param [int]    $user_id    [The id of the user]
+     * @param [string] $name       [The name of the Entry]
+     * @return [int]               [The id of the new entry]
      */
-    public function addEntry($project_id, $data, $user_id){
 
+    public function addEntry($project_id, $data, $user_id, $name){
         $project_id = intval(trim($project_id));
         $user_id = intval(trim($user_id));
         $data = trim(strip_tags($data));
+        $name = trim(strip_tags($name));
 
-        $sql = "INSERT INTO projects (project_id, data, created, created_by, updated, updated_by) VALUES (?, ?, NOW(), ?, NOW(), ?)";
+        $sql = "INSERT INTO projects (project_id, data, created, created_by, updated, updated_by, name) VALUES (?, ?, NOW(), ?, NOW(), ?, ?)";
         $query = $this->db->prepare($sql);
-        $query->bindParam(1, $name);
+        $query->bindParam(1, $project_id);
         $query->bindParam(2, $data);
         $query->bindParam(3, $user_id, PDO::PARAM_INT);
         $query->bindParam(4, $user_id, PDO::PARAM_INT);
+        $query->bindParam(5, $name);
 
         $query->execute();
         $lastID = $this->db->lastInsertId();

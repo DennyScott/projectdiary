@@ -7,13 +7,13 @@ class Projects extends Controller
      * [Opens the index page]
      * @return [void] [No Return]
      */
+
     public function index(){
         require 'application/inc/require_login.php';
         $userProjects_model = $this->loadModel('UserProjectsModel');
         $projects = $userProjects_model->getUserOwnRecentProjectsSubset(1, 0, 2);
         $users_model = $this->loadModel('UsersModel');
         $user = $users_model->getUser($_SESSION["user"]);
-
         require 'application/views/_templates/logged_header.php';  
         require 'application/views/_templates/logged_navbar.php'; 
         if(isset($_SESSION["user"])){
@@ -72,9 +72,7 @@ class Projects extends Controller
 
     public function userProjects($user_id){
         $userProjects_model = $this->loadModel('UserProjectsModel');
-        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id, 0, 2);
-        echo '<pre>';
-        var_dump($userProjects);
+        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id, 0, 3);
         exit;
     }
 

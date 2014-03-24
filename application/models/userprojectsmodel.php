@@ -37,12 +37,15 @@ class UserProjectsModel
         return true;
     }
 
-    /**
-     * Returns all projects the user is attached to
-     * @param  [int] $user_id [The id of the user]
-     * @return [array]        [An array of all projects the user is attached to]
+ /**
+     * Use to find a section of the recent projects.  This will use your user id to go through projects
+     * and list them out to the user for however elements there is in $positionStart to $positionEnd.
+     * @param  [int] $user_id       [The id of the user]
+     * @param  [int] $positionStart [The number start position]
+     * @param  [int] $positionEnd   [The number end position]
+     * @return [array]              [The results of the query]
      */
-    public function getUserOwnProjects($user_id){
+    public function getUserOwnRecentProjects($user_id){
         $user_id = intval(trim($user_id));
         $sql = "SELECT * 
                 FROM user_projects 
@@ -52,13 +55,25 @@ class UserProjectsModel
         $query->execute();
         $all = $query->fetchAll(PDO::FETCH_ASSOC);
 
-        $results = array();
-        require_once("projectsmodel.php");
-        $projects_model = new ProjectsModel($this->db);
-        foreach ($all as $record) {
-            $found = $projects_model->getProject($record["project_id"]);
-            $results[] = $found;
+        if($all === false){
+            return false;
         }
+        
+        $found = "";
+        foreach ($all as $record) {
+            if($found != ""){
+                $found =  $found . ", ";
+            }
+                $found = $found . strval($record["project_id"]);
+        }
+        $sql = "SELECT * 
+                FROM projects 
+                WHERE id IN (" . $found . ")
+                ORDER BY updated";
+        $query = $this->db->prepare($sql);
+        $query->execute();
+
+        $results = $query->fetchAll();
 
         return $results;
     }
@@ -84,6 +99,10 @@ class UserProjectsModel
         $query->execute();
         $all = $query->fetchAll(PDO::FETCH_ASSOC);
 
+        if($all === false){
+            return false;
+        }
+
         $found = "";
         foreach ($all as $record) {
             if($found != ""){
@@ -91,7 +110,7 @@ class UserProjectsModel
             }
                 $found = $found . strval($record["project_id"]);
         }
-
+        
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")
