@@ -68,7 +68,7 @@ class Projects extends Controller
 
     public function userProjects($user_id){
         $userProjects_model = $this->loadModel('UserProjectsModel');
-        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id,0,2);
+        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id, 0, 2);
         echo '<pre>';
         var_dump($userProjects);
         exit;
@@ -77,5 +77,10 @@ class Projects extends Controller
     public function addToUser($username){
         $users_model = $this->loadModel('UsersModel');
         $users_model->addUser($username, "passW");
+    }
+
+    public function logIn($username){
+        $users_model = $this->loadModel('UsersModel');
+        $userId = $users_model->logIn($username, "passW");
     }
 }
