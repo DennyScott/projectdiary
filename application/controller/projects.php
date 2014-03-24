@@ -46,6 +46,19 @@ class Projects extends Controller
         header('location: ' . URL . 'projects/index');
     }
 
+     /**
+     * Adds a User to a project to the userproject database.  The name is not passed, instead it is stored in a post variable.
+     */
+    public function addUserProject()
+    {
+        session_start();
+        if (isset($_POST["submit_add_user_project"]) && isset($_SESSION["user"])) {
+            $userProjects_model = $this->loadModel('UserProjectsModel');
+            $userProjects_model->addUserProject($_POST["user"], $_POST["selectProject"], "Administrator");
+        }
+        header('location: ' . URL . 'projects/index');
+    }
+
     /**
      * Deletes project from the projects table.  Be sure to have the id of the project at the end of the url i.e. .../id
      * @param  [int] $project_id [The id of the project to delete]
@@ -71,11 +84,6 @@ class Projects extends Controller
             $projects_model->updateProject($project_id, 1);
         }
         header('location: ' . URL . 'projects/index');
-    }
-
-    public function addUserProject($project_id){
-        $userProjects_model = $this->loadModel('UserProjectsModel');
-        $userProjects_model->addUserProject(1, $project_id, "Administrator");
     }
 
     public function userProjects($user_id){

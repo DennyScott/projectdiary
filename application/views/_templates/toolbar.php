@@ -41,15 +41,22 @@
                 <h4 class="modal-title">Add User</h4>
             </div>
             <div class="modal-body">
-                <form action="<?php echo URL; ?>projects/addproject" method="POST">
-                   <label for="name">Name</label>
-                   <input type="text" name="name" id="name" value="" required />
-               </form>
+                <form action="<?php echo URL; ?>projects/addUserProject" method="POST">
+                   <label for="selectProject">Project</label>
+                   <select class="col-xs-12 selectProject" name="selectProject" id="selectProject">
+                      <?php foreach($sideProjs as $project){ ?>
+                        <option value="<?php echo $project->id ?>"><?php echo $project->name ?> </option>
+                      <?php } ?>
+                   </select>
+                   <br>
+                   <label for="user">User</label>
+                   <input type="text" name="user" id="user" value="" required />
+               
            </div>
            <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <input type="submit" class="btn btn-primary" name="submit_add_project" value="Submit" />
-
+            <input type="submit" class="btn btn-primary" name="submit_add_user_project" value="Submit" />
+            </form>
              </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

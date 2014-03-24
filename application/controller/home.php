@@ -66,6 +66,7 @@ class Home extends Controller
                 session_start();
                 $_SESSION['user']=$userID;
                 header('location: ' . URL . 'projects/index');
+                exit;
             }
 
         }
