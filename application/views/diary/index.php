@@ -2,11 +2,13 @@
 <div class="diary-content">
 
 	<div class="row">
+		<form method='post' action='<?php echo URL; ?>projects/addproject'>
 		<div class="col-xs-offset-2 col-xs-8">
 			<div class="addentry" id="addentry">
 				<h3>Add Entry</h3>
 			</div>
 		</div>
+		</form>
 	</div>
 	<hr>
 	<div class="diary">

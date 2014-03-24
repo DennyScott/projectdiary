@@ -109,6 +109,7 @@ class UserProjectsModel
             }
                 $found = $found . strval($record["project_id"]);
         }
+        
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")
