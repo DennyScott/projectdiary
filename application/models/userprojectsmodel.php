@@ -74,7 +74,7 @@ class UserProjectsModel
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")
-                ORDER BY updated";
+                ORDER BY updated DESC";
         $query = $this->db->prepare($sql);
         $query->execute();
 
@@ -122,7 +122,7 @@ class UserProjectsModel
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")
-                ORDER BY updated
+                ORDER BY updated DESC
                 LIMIT ?, ?";
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $offset, PDO::PARAM_INT);
