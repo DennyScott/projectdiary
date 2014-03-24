@@ -1,0 +1,156 @@
+@font-face {
+	font-family: Maven Pro Regular;
+	src: url('../fonts/Maven Pro Regular.otf');
+}
+
+@font-face {
+	font-family: Cabin-Bold;
+	src: url('../fonts/Cabin-Bold.otf');
+}
+
+.control-panel{
+	margin-top:50px;
+	position: fixed;
+	width:100%;
+	z-index:100;
+}
+
+.projectManagement{
+	font-size:1.5em;
+	color:#aaaaaa;
+	line-height: 2.3;
+}
+
+.projectManagement a{
+	color:#666;
+	text-decoration: none;
+}
+
+.projectManagement * {
+	margin-left: 10px;
+}
+
+.addentry{
+	background-color:rgba(240,240,240,.8);
+	width:100%;
+	font-family:"Arvo";
+	border-radius: 100px;
+	padding-top:2px;
+	padding-bottom:5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.addentry:hover{
+	background-color:rgba(230,230,230,1);
+	width:100%;
+	font-family:"Arvo";
+	border-radius: 100px;
+	padding-top:2px;
+	padding-bottom:5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.title > h2 {
+   font-family:"Arvo";
+   font-weight: normal;
+   font-size: 26px;
+   text-align: center;
+   color: #black;
+   margin: 0;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.rating > .good{
+	color:rgb(50, 200, 50);
+}
+
+.projectManagement > a{
+	cursor: pointer;
+}
+
+.modal-body > form > #name{
+	width:100%;
+}
+ .diary-content{
+ 	margin-top:120px;
+ 	margin-bottom:30px;
+ }
+
+.project{
+	margin-top:10px;
+	margin-bottom:40px;
+	border-radius: 40px;
+	font-family:Stroke;
+}
+
+.diary > .date > h2, .diary > .date > h3{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.diary > .entry {
+	margin-top:15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: '', sans-serif;
+}
+
+#simple-menu{
+	text-align: center;
+}
+
+.projectWrapper{
+	background-color:rgba(240,240,240,.8);
+	border-radius:200px;
+	margin-bottom:40px;
+	width:290px;
+	height:290px;
+}
+
+.projectTitle{
+	color:black;
+	margin-top:150px;
+	font-family:"Arvo";
+	font-size: 55px;
+    text-align: center;
+}
+
+a > i{
+	color:#aaaaaa;
+}
+
+.navbar-inverse{
+	background-color: #222;
+border-color: #080808;
+
+	font-family: Maven Pro Regular;
+}
+
+.projects{
+	margin-top:40px;
+}
+
+.projectInfo {
+	text-align:center;
+	margin-top:20px;
+}
+
+.projectInfo img{
+	width:200px;
+	margin-top:30px;
+}
+
+.projectHeader{
+	text-align: center;
+	margin-top:-15px;
+}
+
+#footer {
+    padding-top: 19px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 14px;
+}
