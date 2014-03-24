@@ -65,7 +65,7 @@ class Home extends Controller
             if($newProjectID){
                 session_start();
                 $_SESSION['user']=$userID;
-                header('location: ' . URL . 'projects/index');
+                header('location: ' . URL . 'projects/');
                 exit;
             }
 

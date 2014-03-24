@@ -6,7 +6,7 @@
                 <div class="pull-right projectManagement">
                     <a class="add-garden"  data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle"></i></a>
                     <a class="add-garden"  data-toggle="modal" data-target="#addUser"><i class="fa fa-user"></i></a>
-                    <a class="settings"><i class="fa fa-cogs"></i></a>
+                    <!-- <a class="settings"><i class="fa fa-cogs"></i></a> -->
                 </div>
             </div>
         </div>
@@ -42,18 +42,23 @@
             </div>
             <div class="modal-body">
                 <form action="<?php echo URL; ?>projects/addUserProject" method="POST">
+                  <div class="col-xs-12">
                    <label for="selectProject">Project</label>
                    <select class="col-xs-12 selectProject" name="selectProject" id="selectProject">
                       <?php foreach($sideProjs as $project){ ?>
                         <option value="<?php echo $project->id ?>"><?php echo $project->name ?> </option>
                       <?php } ?>
                    </select>
+                 </div>
                    <br>
-                   <label for="user">User</label>
-                   <input type="text" name="user" id="user" value="" required />
+                   <div class="col-xs-12 usernameinput">
+                   <label for="user" class="col-xs-12">User</label>
+                   <input type="text" class="col-xs-12" name="user" id="user" value="" />
+                 </div>
+                   <br> 
                
            </div>
-           <div class="modal-footer">
+           <div class="modal-footer adduserfooter">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <input type="submit" class="btn btn-primary" name="submit_add_user_project" value="Submit" />
             </form>
