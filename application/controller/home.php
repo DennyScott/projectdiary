@@ -52,4 +52,43 @@ class Home extends Controller
         require 'application/views/home/signup.php';
         require 'application/views/_templates/sign-footer.php';
     }
+
+    /**
+     * Adds a project to the project database.  The name is not passed, instead it is stored in a post variable.
+     */
+    public function addUser()
+    {
+        if (isset($_POST["submit_add_user"])) {
+            $users_model = $this->loadModel('UsersModel');
+            $newProjectID = $users_model->addUser($_POST["username"], $_POST["password"]);
+      
+            if($newProjectID){
+                session_start();
+                $_SESSION['user']=$userID;
+                header('location: ' . URL . 'projects/index');
+            }
+
+        }
+
+        header('location: ' . URL . 'home/signup');
+    }
+
+    /**
+     * Adds a project to the project database.  The name is not passed, instead it is stored in a post variable.
+     */
+    public function logIn()
+    {
+        if (isset($_POST["login_user"])) {
+            $users_model = $this->loadModel('UsersModel');
+            $userID = $users_model->logIn($_POST["username"], $_POST["password"]);
+            
+            if($userID){
+                session_start();
+                $_SESSION['user']=$userID;
+                header('location: ' . URL . 'projects/index');
+            }
+
+        }
+        header('location: ' . URL . 'home/signin');
+    }
 }

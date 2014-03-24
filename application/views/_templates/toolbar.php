@@ -5,6 +5,7 @@
                 </div>
                 <div class="pull-right projectManagement">
                     <a class="add-garden"  data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle"></i></a>
+                    <a class="add-garden"  data-toggle="modal" data-target="#myModal"><i class="fa fa-user"></i></a>
                     <a class="settings"><i class="fa fa-cogs"></i></a>
                 </div>
             </div>

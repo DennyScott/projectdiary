@@ -11,14 +11,15 @@
           </div>
         
         
-          <form class="entry-form" id="signUp">
+          <form class="entry-form" id="signUp" method="post" action="<?php echo URL; ?>home/addUser">
             <div class="form-group">
-              <input autofocus="" name="email" type="email" class="form-control" value="" placeholder="Username">
+              <input autofocus="" name="username" type="text" class="form-control" value="" placeholder="Username">
             </div>
+
             <div class="form-group">
               <input name="password" type="password" class="form-control" value="" placeholder="Password">
             </div>
-            <button type="submit" class="submit btn btn-default">Sign Up</button>
+            <button type="submit" name="submit_add_user" class="submit btn btn-default">Sign Up</button>
           </form>
         
         <p class="entry-signup-cta">Already have an account? <a href="<?php echo URL; ?>home/signin">Sign In</a></p>

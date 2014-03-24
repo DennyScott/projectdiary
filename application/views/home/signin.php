@@ -11,15 +11,15 @@
           </div>
         
         
-          <form class="entry-form" id="signIn">
+          <form class="entry-form" id="signIn" action="<?php echo URL; ?>home/logIn">
             <div class="form-group">
-              <input autofocus="" name="email" type="email" class="form-control" value="" placeholder="Username">
+              <input autofocus="" name="username" type="text" class="form-control" value="" placeholder="Username">
             </div>
             <div class="form-group">
               <input name="password" type="password" class="form-control" value="" placeholder="Password">
             </div>
             <!-- <p><a href="/forgot-password">Forgot your password?</a></p> -->
-            <button type="submit" class="submit btn btn-default">Sign In</button>
+            <button type="submit" name="login_user" class="submit btn btn-default">Sign In</button>
           </form>
         
         <p class="entry-signup-cta">Don't have an account? <a href="<?php echo URL; ?>home/signup">Sign Up</a></p>
