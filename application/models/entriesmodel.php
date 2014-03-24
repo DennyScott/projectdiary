@@ -79,20 +79,22 @@ class EntriesModel
     }
 
     /**
-     * Adds an entry to the entry table
-     * @param [string] $name      [The name of the new project to add to the projects table]
-     * @param [int] $createdBy    [The id of the user who created this project]
-     * @return [int]              [The int id of the new project record]
+     * Adds an entry into the entries table.
+     * @param [int]    $project_id [The projects ID the entry belongs to]
+     * @param [string] $data       [The text data of the entry]
+     * @param [int]    $user_id    [The id of the user]
      */
-    public function addEntry($name, $createdBy){
-        $name = strip_tags($name);
-        $name = trim($name);
+    public function addEntry($project_id, $data, $user_id){
+        $project_id = intval(trim($project_id));
+        $user_id = intval(trim($user_id));
+        $data = trim(strip_tags($data));
 
-        $sql = "INSERT INTO projects (name, created, created_by, updated, updated_by) VALUES (?, NOW(), ?, NOW(), ?)";
+        $sql = "INSERT INTO projects (project_id, data, created, created_by, updated, updated_by) VALUES (?, ?, NOW(), ?, NOW(), ?)";
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $name);
-        $query->bindParam(2, $createdBy, PDO::PARAM_INT);
-        $query->bindParam(3, $createdBy, PDO::PARAM_INT);
+        $query->bindParam(2, $data);
+        $query->bindParam(3, $user_id, PDO::PARAM_INT);
+        $query->bindParam(4, $user_id, PDO::PARAM_INT);
 
         $query->execute();
         $lastID = $this->db->lastInsertId();
@@ -101,17 +103,16 @@ class EntriesModel
     }
 
     /**
-     * Deletes a project from the projects table
-     * @param  [int]  $project_id [The id of the project to remove from the projects table]
+     * Deletes a entry from the entries table
+     * @param  [int]  $entry_id   [The id of the entry to remove from the entries table]
      * @return [bool]             [True if the delete was successful]
      */
-    public function deleteProject($project_id){
-        $project_id = intval(trim($project_id));
-
-        $sql = "DELETE FROM projects 
+    public function deleteEntry($entry_id){
+        $entry_id = intval(trim($entry_id));
+        $sql = "DELETE FROM entries 
         WHERE id = ?";
         $query = $this->db->prepare($sql);
-        $query->bindParam(1, $project_id);
+        $query->bindParam(1, $entry_id);
         $query->execute();
     }
 }
