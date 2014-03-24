@@ -36,10 +36,12 @@ class Projects extends Controller
      */
     public function addProject()
     {
-        if (isset($_POST["submit_add_project"])) {
+        session_start();
+        if (isset($_POST["submit_add_project"]) && isset($_SESSION["user"])) {
             $projects_model = $this->loadModel('ProjectsModel');
             $newProjectID = $projects_model->addProject($_POST["name"], 1);
-            //TODO: NEED TO CREATE USERPROJECT LINK HERE!!!!
+            $userProjects_model = $this->loadModel('UserProjectsModel');
+            $userProjects_model->addUserProject($_SESSION["user"], $newProjectID, "Administrator");
         }
         header('location: ' . URL . 'projects/index');
     }
