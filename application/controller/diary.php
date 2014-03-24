@@ -15,14 +15,17 @@ class Diary extends Controller
      */
     public function index()
     {   session_start();
-        require 'application/views/_templates/logged_header.php';
-        require 'application/views/_templates/logged_navbar.php';
-        if(isset($_SESSION["user"])){
-        require 'application/views/_templates/toolbar.php';
-    }
-        require 'application/views/diary/index.php';
-        require 'application/views/_templates/sidr.php';
-        require 'application/views/_templates/sign-footer.php';
+
+    //     require 'application/views/_templates/logged_header.php';
+    //     require 'application/views/_templates/logged_navbar.php';
+    //     if(isset($_SESSION["user"])){
+    //     require 'application/views/_templates/toolbar.php';
+    // }
+    //     require 'application/views/diary/index.php';
+    //     require 'application/views/_templates/sidr.php';
+    //     require 'application/views/_templates/sign-footer.php';
+        header('location: ' . URL . 'projects');
+
     }
 
     public function projectDiary($project_id){
@@ -41,11 +44,12 @@ class Diary extends Controller
     }
 
     public function addEntry(){
+        session_start();
         if (isset($_POST["submit_add_entry"])) {
             $entries_model = $this->loadModel('EntriesModel');
-            $entryID = $entries_model->addEntry($_POST["inputEntryTitle"], $_POST["inputEntryData"], $_SESSION["user"]);
-        }
-        header('location: ' . URL . 'diary');
+            $entryID = $entries_model->addEntry($_POST["storeID"],$_POST["inputEntryData"], $_SESSION["user"],$_POST["inputEntryTitle"]);
+        
+        header('location: ' . URL . 'projectDiary/' . $_SESSION["storeID"]);
     
     }
 }

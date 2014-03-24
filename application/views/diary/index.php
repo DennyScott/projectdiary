@@ -4,7 +4,7 @@
 	<?php if(isset($_SESSION["user"])){ ?>
 	<div class="row">
 		<form method='post' action='<?php echo URL; ?>diary/addEntry'>
-		<input type="hidden" id="<? echo $project_id; ?>">	
+		<input type="hidden" name="storeID" id="storeID" value="<? echo $project_id; ?>">	
 		<div class="col-xs-offset-2 col-xs-8">
 			<div class="addentry" id="addentry">
 				<h3>Add Entry</h3>
