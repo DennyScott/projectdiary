@@ -29,7 +29,6 @@
                 <h3 class="projectHeader">Project Diary</h3>
             </div>
         </div>
-
     </div>
 </div>
 
