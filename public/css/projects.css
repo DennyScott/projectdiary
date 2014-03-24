@@ -1,0 +1,94 @@
+@font-face {
+	font-family: Maven Pro Regular;
+	src: url('../fonts/Maven Pro Regular.otf');
+}
+
+.control-panel{
+	margin-top:50px;
+	position: fixed;
+	width:100%;
+}
+
+.projectManagement{
+	font-size:1.5em;
+	color:#aaaaaa;
+	line-height: 2.3;
+}
+
+.projectManagement * {
+	margin-left: 10px;
+}
+
+.title > h2 {
+   font-family:"Arvo";
+   font-weight: normal;
+   font-size: 26px;
+   text-align: center;
+   color: #black;
+   margin: 0;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.rating > .good{
+	color:rgb(50, 200, 50);
+}
+
+.project{
+	margin-top:10px;
+	margin-bottom:40px;
+	border-radius: 40px;
+	font-family:Stroke;
+}
+
+.projectWrapper{
+	background-color:rgba(240,240,240,.8);
+	border-radius:200px;
+	width:290px;
+	height:290px;
+}
+
+.projectTitle{
+	color:black;
+	margin-top:150px;
+	font-family:"Arvo";
+	font-size: 55px;
+    text-align: center;
+}
+
+a > i{
+	color:#aaaaaa;
+}
+
+.navbar-inverse{
+	background-color: #222;
+border-color: #080808;
+
+	font-family: Maven Pro Regular;
+}
+
+.projects{
+	margin-top:40px;
+}
+
+.projectInfo {
+	text-align:center;
+	margin-top:20px;
+}
+
+.projectInfo img{
+	width:200px;
+	margin-top:30px;
+}
+
+.projectHeader{
+	text-align: center;
+	margin-top:-15px;
+}
+
+#footer {
+    padding-top: 19px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+    font-size: 14px;
+}

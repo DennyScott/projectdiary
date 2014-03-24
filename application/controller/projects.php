@@ -16,12 +16,13 @@ class Projects extends Controller
      */
     public function index()
     {
-        // debug message to show where you are, just for the demo
-        echo 'Welcome to projects!!';
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         $projects_model = $this->loadModel('ProjectsModel');
         $projects = $projects_model->getRecentProjects();
+        require 'application/views/_templates/logged_header.php';  
+        require 'application/views/_templates/logged_navbar.php'; 
         require 'application/views/projects/index.php';
+        require 'application/views/_templates/sign-footer.php'; 
     }
 
     /**
@@ -31,8 +32,6 @@ class Projects extends Controller
      */
     public function addProject()
     {
-        // debug message to show where you are, just for the demo
-        echo 'Lets add a project!';
 
         // if we have POST data to create a new song entry
         if (isset($_POST["submit_add_project"])) {

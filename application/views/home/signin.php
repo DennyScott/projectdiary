@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
       
-      <div class="entry col-md-4 col-md-offset-4 sign-content">
+      <div class="entry col-md-4 col-md-offset-4 push-content">
         
         <!--empty-->
         
