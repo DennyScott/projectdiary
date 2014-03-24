@@ -49,7 +49,7 @@ class Diary extends Controller
             $entries_model = $this->loadModel('EntriesModel');
             $entryID = $entries_model->addEntry($_POST["storeID"],$_POST["inputEntryData"], $_SESSION["user"],$_POST["inputEntryTitle"]);
         }   
-        header('location: ' . URL . 'projects);
+        header('location: ' . URL . 'projects');
     
     }
 }
