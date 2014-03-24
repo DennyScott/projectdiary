@@ -15,7 +15,17 @@ class Diary extends Controller
      */
     public function index()
     {
-        // load views. within the views we can echo out $songs and $amount_of_songs easily
+        require 'application/views/_templates/logged_header.php';
+        require 'application/views/_templates/logged_navbar.php';
+        require 'application/views/_templates/toolbar.php';
+        require 'application/views/diary/index.php';
+        require 'application/views/_templates/sidr.php';
+        require 'application/views/_templates/sign-footer.php';
+    }
+
+    public function projectDiary($project_id){
+        $projects_model = $this->loadModel('ProjectsModel');
+        $project = $projects_model->getProject($project_id);
         require 'application/views/_templates/logged_header.php';
         require 'application/views/_templates/logged_navbar.php';
         require 'application/views/_templates/toolbar.php';
