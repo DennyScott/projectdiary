@@ -21,7 +21,9 @@ class Projects extends Controller
         $projects = $projects_model->getRecentProjects();
         require 'application/views/_templates/logged_header.php';  
         require 'application/views/_templates/logged_navbar.php'; 
+        require 'application/views/_templates/toolbar.php'; 
         require 'application/views/projects/index.php';
+        require 'application/views/_templates/sidr.php'; 
         require 'application/views/_templates/sign-footer.php'; 
     }
 

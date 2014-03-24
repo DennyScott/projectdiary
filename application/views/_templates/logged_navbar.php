@@ -4,11 +4,11 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-01">
           <span class="sr-only">Toggle navigation</span>
         </button>
-        <a class="navbar-brand" href="">Project Diary</a>
+        <a class="navbar-brand" href="<?php echo URL; ?>projects/">Project Diary</a>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav">
-          <li class=""><a href="">Your Projects</a></li>
+          <li class=""><a href="<?php echo URL; ?>projects/">Your Projects</a></li>
           <li class=""><a href="">Analytics</a></li>
           <li class=""><a href="">Forums</a></li>
         </ul>

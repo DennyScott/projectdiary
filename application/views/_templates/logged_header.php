@@ -11,14 +11,23 @@
     <link href="<?php echo URL; ?>public/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/projects.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/font-awesome.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo">
     <!-- jQuery -->
     <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <link href="<?php echo URL; ?>public/css/jquery.sidr.dark.css" rel="stylesheet">
 
     <!-- our JavaScript -->
     <script src="<?php echo URL; ?>public/js/bootstrap.min.js"></script>
-
+    <script src="<?php echo URL; ?>public/js/jquery.sidr.min.js"></script>
     <script src="<?php echo URL; ?>public/js/application.js"></script>
+
+    <script>
+         $(document).ready(function() {
+      $('#simple-menu').sidr();
+      });
+    </script>
 </head>
 <body>
    

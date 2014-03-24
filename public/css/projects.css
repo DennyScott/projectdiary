@@ -3,10 +3,16 @@
 	src: url('../fonts/Maven Pro Regular.otf');
 }
 
+@font-face {
+	font-family: Cabin-Bold;
+	src: url('../fonts/Cabin-Bold.otf');
+}
+
 .control-panel{
 	margin-top:50px;
 	position: fixed;
 	width:100%;
+	z-index:100;
 }
 
 .projectManagement{
@@ -15,8 +21,35 @@
 	line-height: 2.3;
 }
 
+.projectManagement a{
+	color:#666;
+	text-decoration: none;
+}
+
 .projectManagement * {
 	margin-left: 10px;
+}
+
+.addentry{
+	background-color:rgba(240,240,240,.8);
+	width:100%;
+	font-family:"Arvo";
+	border-radius: 100px;
+	padding-top:2px;
+	padding-bottom:5px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.addentry:hover{
+	background-color:rgba(230,230,230,1);
+	width:100%;
+	font-family:"Arvo";
+	border-radius: 100px;
+	padding-top:2px;
+	padding-bottom:5px;
+	text-align: center;
+	cursor: pointer;
 }
 
 .title > h2 {
@@ -34,6 +67,18 @@
 	color:rgb(50, 200, 50);
 }
 
+.projectManagement > a{
+	cursor: pointer;
+}
+
+.modal-body > form > #name{
+	width:100%;
+}
+ .diary-content{
+ 	margin-top:120px;
+ 	margin-bottom:30px;
+ }
+
 .project{
 	margin-top:10px;
 	margin-bottom:40px;
@@ -41,9 +86,26 @@
 	font-family:Stroke;
 }
 
+.diary > .date > h2, .diary > .date > h3{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.diary > .entry {
+	margin-top:15px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: '', sans-serif;
+}
+
+#simple-menu{
+	text-align: center;
+}
+
 .projectWrapper{
 	background-color:rgba(240,240,240,.8);
 	border-radius:200px;
+	margin-bottom:40px;
 	width:290px;
 	height:290px;
 }
