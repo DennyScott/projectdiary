@@ -11,7 +11,7 @@ class Projects extends Controller
     {
 
         $projects_model = $this->loadModel('ProjectsModel');
-        $projects = $projects_model->getRecentProjects();
+        $projects = $projects_model->getUserOwnRecentProjectsSubset();
         require 'application/views/_templates/logged_header.php';  
         require 'application/views/_templates/logged_navbar.php'; 
         require 'application/views/_templates/toolbar.php'; 
