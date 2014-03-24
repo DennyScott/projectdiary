@@ -52,9 +52,15 @@ class Projects extends Controller
     public function addUserProject()
     {
         session_start();
-        if (isset($_POST["submit_add_user_project"]) && isset($_SESSION["user"])) {
+        if (isset($_POST["submit_add_user_project"]) && isset($_SESSION["user"]) && $_POST["user"]!== "") {
             $userProjects_model = $this->loadModel('UserProjectsModel');
-            $userProjects_model->addUserProject($_POST["user"], $_POST["selectProject"], "Administrator");
+            $user_model = $this->loadModel('UsersModel');
+            $user_names = explode(',',$_POST["user"]);
+
+            foreach($user_names as $userName){
+            $user = $user_model->getUserByUsername($userName);
+            $userProjects_model->addUserProject($user->id, $_POST["selectProject"], "Administrator");
+            }
         }
         header('location: ' . URL . 'projects/index');
     }

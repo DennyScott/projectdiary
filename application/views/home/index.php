@@ -46,8 +46,8 @@
 
 		<div id="slide5">
 			<div>
-				<div class="background-black">
-					<h2>Try Us Today! </h2>
+				<div class="tryme background-black">
+					<h2 onclick="window.location='<?php echo URL; ?>home/signin'">Try Us Today! </h2>
 				</div>
 				<div id="copyright"><a href="http://www.moonlitestudio.com/">Copyright moonlitestudio.com </a></div>
 			</div>

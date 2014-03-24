@@ -42,6 +42,10 @@ body{
     margin-right:5px;
 }
 
+.tryme{
+    cursor:pointer;
+}
+
 .center { margin: 0 auto; }
 .content{ margin: 0 auto; width: 960px; }
 .clear { clear: both; }

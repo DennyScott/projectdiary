@@ -60,12 +60,12 @@ class Home extends Controller
     {
         if (isset($_POST["submit_add_user"])) {
             $users_model = $this->loadModel('UsersModel');
-            $newProjectID = $users_model->addUser($_POST["username"], $_POST["password"]);
+            $userID = $users_model->addUser($_POST["username"], $_POST["password"]);
 
-            if($newProjectID){
+            if($userID){
                 session_start();
                 $_SESSION['user']=$userID;
-                header('location: ' . URL . 'projects/index');
+                header('location: ' . URL . 'projects');
                 exit;
             }
 

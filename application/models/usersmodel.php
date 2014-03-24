@@ -50,7 +50,7 @@ class UsersModel
      * @param  [string] $username [The username to search the table for]
      * @return [object]           [An object of the user found, false if not found]
      */
-    public function getUser($username){
+    public function getUserByUsername($username){
         $username = trim(strip_tags($username));
         $sql = "SELECT * 
                 FROM users 

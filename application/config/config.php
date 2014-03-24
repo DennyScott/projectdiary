@@ -18,14 +18,14 @@ ini_set("display_errors", 1);
  * Configuration for: Project URL
  * Put your URL here, for local development "127.0.0.1" or "localhost" (plus sub-folder) is fine
  */
-define('URL', 'http://127.0.0.1/projectdiary/');
+define('URL', 'http://ec2-54-186-166-213.us-west-2.compute.amazonaws.com/projectdiary/');
 
 /**
  * Configuration for: Database
  * This is the place where you define your database credentials, database type etc.
  */
 define('DB_TYPE', 'mysql');
-define('DB_HOST', '127.0.0.1');
+define('DB_HOST', 'localhost');
 define('DB_NAME', 'project_diary');
 define('DB_USER', 'public');
 define('DB_PASS', 'public');
