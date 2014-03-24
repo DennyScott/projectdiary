@@ -1,6 +1,6 @@
 <div class="container">
     <div class="title">
-        <h1 class="projectTitle">Moonlite Studio Projects</h1>
+        <h1 class="projectTitle"> Projects</h1>
     </div>
     <div class="projects row">
 

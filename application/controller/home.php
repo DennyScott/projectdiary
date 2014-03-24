@@ -61,7 +61,7 @@ class Home extends Controller
         if (isset($_POST["submit_add_user"])) {
             $users_model = $this->loadModel('UsersModel');
             $newProjectID = $users_model->addUser($_POST["username"], $_POST["password"]);
-      
+
             if($newProjectID){
                 session_start();
                 $_SESSION['user']=$userID;
@@ -81,14 +81,25 @@ class Home extends Controller
         if (isset($_POST["login_user"])) {
             $users_model = $this->loadModel('UsersModel');
             $userID = $users_model->logIn($_POST["username"], $_POST["password"]);
-            
-            if($userID){
+            if($userID !== false){
                 session_start();
                 $_SESSION['user']=$userID;
                 header('location: ' . URL . 'projects/index');
+                exit;
             }
 
         }
         header('location: ' . URL . 'home/signin');
     }
+
+    /**
+     * Adds a project to the project database.  The name is not passed, instead it is stored in a post variable.
+     */
+    public function signout()
+    {
+        session_start();
+        if(isset($_SESSION['user']))
+          unset($_SESSION['user']);
+      header('location: ' . URL . 'home/');
+  }
 }

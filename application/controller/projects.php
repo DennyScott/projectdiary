@@ -8,13 +8,14 @@ class Projects extends Controller
      * @return [void] [No Return]
      */
     public function index()
-    {
-
+    {   session_start();
         $projects_model = $this->loadModel('ProjectsModel');
         $projects = $projects_model->getUserOwnRecentProjectsSubset();
         require 'application/views/_templates/logged_header.php';  
         require 'application/views/_templates/logged_navbar.php'; 
-        require 'application/views/_templates/toolbar.php'; 
+        if(isset($_SESSION["user"])){
+         require 'application/views/_templates/toolbar.php'; 
+        }
         require 'application/views/projects/index.php';
         require 'application/views/_templates/sidr.php'; 
         require 'application/views/_templates/sign-footer.php'; 
