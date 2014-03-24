@@ -1,8 +1,10 @@
 <div class="container">
 <div class="diary-content">
 
+	<?php if(isset($_SESSION["user"])){ ?>
 	<div class="row">
-		<form method='post' action='<?php echo URL; ?>projects/addproject'>
+		<form method='post' action='<?php echo URL; ?>diary/addEntry'>
+		<input type="hidden" id="<? echo $project_id; ?>">	
 		<div class="col-xs-offset-2 col-xs-8">
 			<div class="addentry" id="addentry">
 				<h3>Add Entry</h3>
@@ -11,6 +13,7 @@
 		</form>
 	</div>
 	<hr>
+	<?php } ?>
 	<div class="diary">
 
 		<div class="row date">

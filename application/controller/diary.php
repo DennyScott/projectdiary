@@ -14,23 +14,39 @@ class Diary extends Controller
      * This method handles what happens when you move to http://yourproject/home/index (which is the default page btw)
      */
     public function index()
-    {
+    {   session_start();
         require 'application/views/_templates/logged_header.php';
         require 'application/views/_templates/logged_navbar.php';
+        if(isset($_SESSION["user"])){
         require 'application/views/_templates/toolbar.php';
+    }
         require 'application/views/diary/index.php';
         require 'application/views/_templates/sidr.php';
         require 'application/views/_templates/sign-footer.php';
     }
 
     public function projectDiary($project_id){
+        session_start();
         $projects_model = $this->loadModel('ProjectsModel');
         $project = $projects_model->getProject($project_id);
+        var_dump($project_id);
+        exit;
         require 'application/views/_templates/logged_header.php';
         require 'application/views/_templates/logged_navbar.php';
+        if(isset($_SESSION["user"])){
         require 'application/views/_templates/toolbar.php';
+    }
         require 'application/views/diary/index.php';
         require 'application/views/_templates/sidr.php';
         require 'application/views/_templates/sign-footer.php';
+    }
+
+    public function addEntry(){
+        if (isset($_POST["submit_add_entry"])) {
+            $entries_model = $this->loadModel('EntriesModel');
+            $entryID = $entries_model->addEntry($_POST["inputEntryTitle"], $_POST["inputEntryData"], $_SESSION["user"]);
+        }
+        header('location: ' . URL . 'diary');
+    
     }
 }

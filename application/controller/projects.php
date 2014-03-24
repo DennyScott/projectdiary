@@ -9,8 +9,8 @@ class Projects extends Controller
      */
     public function index(){
         require 'application/inc/require_login.php';
-        $projects_model = $this->loadModel('UserProjectsModel');
-        $projects = $projects_model->getUserOwnRecentProjectsSubset($_SESSION["user"],0,3);
+        $userProjects_model = $this->loadModel('UserProjectsModel');
+        $projects = $userProjects_model->getUserOwnRecentProjectsSubset(1, 0, 2);
         $users_model = $this->loadModel('UsersModel');
         $user = $users_model->getUser($_SESSION["user"]);
 

@@ -4,7 +4,7 @@
     </div>
     <div class="projects row">
 
-        <?php foreach ($projects as $project) { ?>
+        <?php if($projects !== false){foreach ($projects as $project) { ?>
             <div class="project col-xs-12 col-md-4" onclick="window.location='<?php echo URL; ?>diary/<?php echo $project->id; ?>'";>
                 <div class="projectWrapper">
                     <div class="projectInfo">
@@ -13,9 +13,7 @@
                     <h3 class="projectHeader"><?php echo $project->name ?></h3>
                 </div>
             </div>     
-        <?php } ?>
-
-        ?>
+        <?php }} ?>
     </div>
 </div>
 

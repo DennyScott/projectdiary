@@ -72,6 +72,7 @@ class UserProjectsModel
      * @return [array]              [The results of the query]
      */
     public function getUserOwnRecentProjectsSubset($user_id, $positionStart, $positionEnd){
+       
         $user_id = intval(trim($user_id));
         $offset = intval($positionStart);
         $rows = intval($positionEnd) - intval($positionStart);
