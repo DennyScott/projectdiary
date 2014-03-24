@@ -127,6 +127,7 @@ class UsersModel
         if($result === false){
             return $result;
         }
+
         return intval($result->id);
     }
 }

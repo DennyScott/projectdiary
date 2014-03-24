@@ -9,12 +9,13 @@
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav">
           <li class=""><a href="<?php echo URL; ?>projects/">Your Projects</a></li>
-          <li class=""><a href="">Analytics</a></li>
-          <li class=""><a href="">Forums</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="">Sign Out</a></li>
-
+          <?php if(isset($_SESSION["user"])){ ?>
+            <li><a href="<?php echo URL; ?>home/signout">Sign Out</a></li>
+            <?php }else{ ?>
+            <li><a href="<?php echo URL; ?>home/signin">Sign In</a></li>
+            <?php } ?>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>

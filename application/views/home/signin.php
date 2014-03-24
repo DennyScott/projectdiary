@@ -11,7 +11,7 @@
           </div>
         
         
-          <form class="entry-form" id="signIn" action="<?php echo URL; ?>home/logIn">
+          <form class="entry-form" id="signIn" action="<?php echo URL; ?>home/logIn" method="post">
             <div class="form-group">
               <input autofocus="" name="username" type="text" class="form-control" value="" placeholder="Username">
             </div>
@@ -19,7 +19,7 @@
               <input name="password" type="password" class="form-control" value="" placeholder="Password">
             </div>
             <!-- <p><a href="/forgot-password">Forgot your password?</a></p> -->
-            <button type="submit" name="login_user" class="submit btn btn-default">Sign In</button>
+            <input type="submit" name="login_user" class="submit btn btn-default" value="Sign In">
           </form>
         
         <p class="entry-signup-cta">Don't have an account? <a href="<?php echo URL; ?>home/signup">Sign Up</a></p>
