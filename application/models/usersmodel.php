@@ -46,6 +46,22 @@ class UsersModel
     }
 
     /**
+     * Returns a user with the given username
+     * @param  [string] $username [The username to search the table for]
+     * @return [object]           [An object of the user found, false if not found]
+     */
+    public function getUser($username){
+        $username = trim(strip_tags($username));
+        $sql = "SELECT * 
+                FROM users 
+                WHERE username = ?";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(1, $username);
+        $query->execute();
+        return $query->fetch();
+    }
+
+    /**
      * Use to get a single user from the users table
      * @param  [int]   $user_id    [The ID of the user to get]
      * @return [array]             [A single element array containing the user]
