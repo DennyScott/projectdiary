@@ -69,11 +69,6 @@ class ProjectsModel
         return true;
     }
 
-    //THIS WILL RETURN PROJECTS BELONGING TO THE USER
-    public function userProjects($user_id){
-
-    }
-
     /**
      * Returns all projects in the projects table
      * @return [array] [All projects in the projects table]

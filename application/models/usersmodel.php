@@ -76,7 +76,7 @@ class UsersModel
 
         $sql = "INSERT INTO users (username, password, created, last_logged_in) VALUES (?, ?, NOW(), NOW())";
         $query = $this->db->prepare($sql);
-        $query->bindParam(1, $name);
+        $query->bindParam(1, $username);
         $query->bindParam(2, $password);
 
         $query->execute();

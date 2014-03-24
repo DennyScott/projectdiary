@@ -56,4 +56,22 @@ class Projects extends Controller
         }
         header('location: ' . URL . 'projects/index');
     }
+
+    public function addUserProject($project_id){
+        $userProjects_model = $this->loadModel('UserProjectsModel');
+        $userProjects_model->addUserProject(1, $project_id, "Administrator");
+    }
+
+    public function userProjects($user_id){
+        $userProjects_model = $this->loadModel('UserProjectsModel');
+        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id,0,2);
+        echo '<pre>';
+        var_dump($userProjects);
+        exit;
+    }
+
+    public function addToUser($username){
+        $users_model = $this->loadModel('UsersModel');
+        $users_model->addUser($username, "passW");
+    }
 }
