@@ -24,6 +24,10 @@ class Diary extends Controller
     }
 
     public function projectDiary($project_id){
+        $user_id = $_SESSION["user"];
+        $projects_model = $this->loadModel('UserProjectsModel');
+        $sideProjs = $projects_model->getUserOwnRecentProjects($user_id);
+
         $entries_model = $this->loadModel('EntriesModel');
         $entries = $entries_model->getRecentEntriesForProject($project_id);
         require 'application/views/_templates/logged_header.php';

@@ -66,6 +66,11 @@ class UserProjectsModel
             }
                 $found = $found . strval($record["project_id"]);
         }
+
+        if($found == ""){
+            return false;
+        }
+
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")
@@ -109,7 +114,10 @@ class UserProjectsModel
             }
                 $found = $found . strval($record["project_id"]);
         }
-        
+
+        if($found == ""){
+            return false;
+        }
         $sql = "SELECT * 
                 FROM projects 
                 WHERE id IN (" . $found . ")

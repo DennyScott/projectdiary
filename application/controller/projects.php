@@ -10,8 +10,13 @@ class Projects extends Controller
 
     public function index(){
         require 'application/inc/require_login.php';
+
+        //USED FOR SIDR
+        $user_id = $_SESSION["user"];
         $projects_model = $this->loadModel('UserProjectsModel');
-        $projects = $projects_model->getUserOwnRecentProjectsSubset($_SESSION["user"],0,3);
+        $sideProjs = $projects_model->getUserOwnRecentProjects($user_id);
+
+        $projects = $projects_model->getUserOwnRecentProjectsSubset($user_id,0,3);
         $users_model = $this->loadModel('UsersModel');
         $user = $users_model->getUser($_SESSION["user"]);
         require 'application/views/_templates/logged_header.php';  

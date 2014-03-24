@@ -94,7 +94,7 @@ class EntriesModel
         $data = trim(strip_tags($data));
         $name = trim(strip_tags($name));
 
-        $sql = "INSERT INTO projects (project_id, data, created, created_by, updated, updated_by, name) VALUES (?, ?, NOW(), ?, NOW(), ?, ?)";
+        $sql = "INSERT INTO entries (project_id, data, created, created_by, updated, updated_by, name) VALUES (?, ?, NOW(), ?, NOW(), ?, ?)";
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $project_id);
         $query->bindParam(2, $data);
