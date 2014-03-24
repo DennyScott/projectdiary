@@ -24,8 +24,8 @@ class Diary extends Controller
     }
 
     public function projectDiary($project_id){
-        $projects_model = $this->loadModel('ProjectsModel');
-        $project = $projects_model->getProject($project_id);
+        $entries_model = $this->loadModel('EntriesModel');
+        $entries = $entries_model->getRecentEntriesForProject($project_id);
         require 'application/views/_templates/logged_header.php';
         require 'application/views/_templates/logged_navbar.php';
         require 'application/views/_templates/toolbar.php';

@@ -7,10 +7,10 @@ class Projects extends Controller
      * [Opens the index page]
      * @return [void] [No Return]
      */
-    public function index()
-    {   session_start();
+    public function index(){   
+        session_start();
         $projects_model = $this->loadModel('ProjectsModel');
-        $projects = $projects_model->getUserOwnRecentProjectsSubset();
+        $projects = $projects_model->getRecentProjects();
         require 'application/views/_templates/logged_header.php';  
         require 'application/views/_templates/logged_navbar.php'; 
         if(isset($_SESSION["user"])){
@@ -69,9 +69,7 @@ class Projects extends Controller
 
     public function userProjects($user_id){
         $userProjects_model = $this->loadModel('UserProjectsModel');
-        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id, 0, 2);
-        echo '<pre>';
-        var_dump($userProjects);
+        $userProjects = $userProjects_model->getUserOwnRecentProjectsSubset($user_id, 0, 3);
         exit;
     }
 
