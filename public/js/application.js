@@ -9,7 +9,7 @@ $(function() {
     	$(this).removeClass("addentry");
     	$(this).toggle();
 
-    	$(this).html("<div class='row'><label for='inputEntryTitle' class='col-xs-12'>Entry Title</label><input type='text' class='col-xs-12 inputEntryTitle' id='inputEntryTitle' placeholder='Entry Title'><div class='col-xs-12 entryData'><label for='inputEntryData'>Entry Data</label><textarea class='col-xs-12 inputEntryData' id='inputEntryData'></textarea></div><div class='col-xs-12'><input type='submit' class='entrySubmit btn btn-primary' value='Add Entry'></div></div>");
+    	$(this).html("<div class='row'><label for='inputEntryTitle' class='col-xs-12'>Entry Title</label><input type='text' class='col-xs-12 inputEntryTitle' name='inputEntryTitle' id='inputEntryTitle' placeholder='Entry Title'><div class='col-xs-12 entryData'><label for='inputEntryData'>Entry Data</label><textarea class='col-xs-12 inputEntryData' name='inputEntryData' id='inputEntryData'></textarea></div><div class='col-xs-12'><input type='submit' name='submit_add_entry' class='entrySubmit btn btn-primary' value='Add Entry'></div></div>");
     	$(this).fadeIn().slideDown();
     	$(this).off('click');
 

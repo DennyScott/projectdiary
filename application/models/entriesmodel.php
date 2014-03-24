@@ -88,7 +88,10 @@ class EntriesModel
      * @param [string] $name       [The name of the Entry]
      * @return [int]               [The id of the new entry]
      */
+
     public function addEntry($project_id, $data, $user_id, $name){
+
+
         $project_id = intval(trim($project_id));
         $user_id = intval(trim($user_id));
         $data = trim(strip_tags($data));

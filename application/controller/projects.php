@@ -17,6 +17,7 @@ class Projects extends Controller
         $sideProjs = $projects_model->getUserOwnRecentProjects($user_id);
 
         $projects = $projects_model->getUserOwnRecentProjectsSubset($user_id,0,3);
+
         $users_model = $this->loadModel('UsersModel');
         $user = $users_model->getUser($_SESSION["user"]);
         require 'application/views/_templates/logged_header.php';  
