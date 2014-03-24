@@ -30,6 +30,9 @@ class Diary extends Controller
 
     public function projectDiary($project_id){
         session_start();
+        $user_id = $_SESSION["user"];
+        $projects_model = $this->loadModel('UserProjectsModel');
+        $sideProjs = $projects_model->getUserOwnRecentProjects($user_id);
 
         $entries_model = $this->loadModel('EntriesModel');
         $entries = $entries_model->getRecentEntriesForProject($project_id);
@@ -37,7 +40,7 @@ class Diary extends Controller
         require 'application/views/_templates/logged_navbar.php';
         if(isset($_SESSION["user"])){
         require 'application/views/_templates/toolbar.php';
-    }
+        }
         require 'application/views/diary/index.php';
         require 'application/views/_templates/sidr.php';
         require 'application/views/_templates/sign-footer.php';
@@ -48,8 +51,8 @@ class Diary extends Controller
         if (isset($_POST["submit_add_entry"]) && isset($_SESSION["user"])) {
             $entries_model = $this->loadModel('EntriesModel');
             $entryID = $entries_model->addEntry($_POST["storeID"],$_POST["inputEntryData"], $_SESSION["user"],$_POST["inputEntryTitle"]);
-        }   
+            header('location: ' . URL . 'projectDiary/' . $_POST["storeID"]);
+        }  
         header('location: ' . URL . 'projects');
-    
     }
 }
