@@ -74,6 +74,18 @@ class UsersModel
         $password = strip_tags($password);
         $password = trim($password);
 
+        $sql = "SELECT * 
+                FROM users 
+                WHERE username = ?";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(1, $username);
+        $query->execute();
+        $result =$query->fetch();
+
+        if($result !== false){
+            return false;
+        }
+
         $sql = "INSERT INTO users (username, password, created, last_logged_in) VALUES (?, ?, NOW(), NOW())";
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $username);
@@ -98,5 +110,23 @@ class UsersModel
         $query = $this->db->prepare($sql);
         $query->bindParam(1, $user_id);
         $query->execute();
+    }
+
+    public function logIn($username, $password){
+        $username = trim(strval(strip_tags($username)));
+        $password = trim(strval(strip_tags($password)));
+        $sql = "SELECT * 
+                FROM users 
+                WHERE username = ? AND password = ?";
+        $query = $this->db->prepare($sql);
+        $query->bindParam(1, $username);
+        $query->bindParam(2, $password);
+        $query->execute();
+        $result =$query->fetch();
+
+        if($result === false){
+            return $result;
+        }
+        return intval($result->id);
     }
 }
