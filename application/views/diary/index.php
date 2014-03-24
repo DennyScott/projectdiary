@@ -3,7 +3,7 @@
 
 	<div class="row">
 		<div class="col-xs-offset-2 col-xs-8">
-			<div class="addentry">
+			<div class="addentry" id="addentry">
 				<h3>Add Entry</h3>
 			</div>
 		</div>

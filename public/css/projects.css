@@ -41,6 +41,25 @@
 	cursor: pointer;
 }
 
+.entrySubmit{
+	margin-top:10px;
+	float:right;
+}
+
+.entryData{
+	margin-top:20px;
+}
+
+.inputEntryTitle{
+	width:300px;
+	margin-left:15px;
+}
+
+.inputEntryData{
+	width:100%;
+	height:300px;
+}
+
 .addentry:hover{
 	background-color:rgba(230,230,230,1);
 	width:100%;
