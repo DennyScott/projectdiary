@@ -45,11 +45,11 @@ class Diary extends Controller
 
     public function addEntry(){
         session_start();
-        if (isset($_POST["submit_add_entry"])) {
+        if (isset($_POST["submit_add_entry"]) && isset($_SESSION["user"])) {
             $entries_model = $this->loadModel('EntriesModel');
             $entryID = $entries_model->addEntry($_POST["storeID"],$_POST["inputEntryData"], $_SESSION["user"],$_POST["inputEntryTitle"]);
-        
-        header('location: ' . URL . 'projectDiary/' . $_SESSION["storeID"]);
+        }   
+        header('location: ' . URL . 'projects);
     
     }
 }
